@@ -13,3 +13,12 @@
    - strace
    - htop
    - tcpdump
+   - netcat
+   - screen
+   - htop
+   - lsof
+   - vim
+   - ncdu
+   - rsync
+   - tcpdump
+  
