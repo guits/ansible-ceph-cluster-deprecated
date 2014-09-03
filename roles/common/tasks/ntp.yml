@@ -1,0 +1,5 @@
+---
+#
+
+- name: be sure ntpd is running and enabled
+  service: name=ntp state=running enabled=yes

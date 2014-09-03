@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 - name: ensure .ssh directory exists for root user
   file: dest=/root/.ssh owner=root group=root mode=0755 state=directory
 - name: add zigzag repo
@@ -28,3 +29,12 @@
    - zigzag-base-config
 - name: be sure ntpd is running and enabled
   service: name=ntp state=running enabled=yes
+=======
+---
+# Common task for all nodes
+
+- include: ssh_keys.yml
+- include: repo.yml
+- include: packages.yml
+- include: ntp.yml
+>>>>>>> 76c471a92a3265533ea35ebe00cd10f847179e71
