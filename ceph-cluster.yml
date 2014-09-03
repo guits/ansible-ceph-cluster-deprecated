@@ -1,3 +1,4 @@
 - hosts: ceph-cluster
   roles:
-  - ceph-cluster-common
+  - common
+  - ceph

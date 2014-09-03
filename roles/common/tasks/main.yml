@@ -1,7 +1,5 @@
 - name: ensure .ssh directory exists for root user
   file: dest=/root/.ssh owner=root group=root mode=0755 state=directory
-- name: put ssh keys for root user
-  copy: src=ssh/pub-keys dest=/root/.ssh/authorized_keys owner=root group=root mode=0600
 - name: add zigzag repo
 # useless password
   apt_repository: repo='deb http://zigzag:VpR+d52}qv@repo.zigzag.sx wheezy main' mode=644 state=present
