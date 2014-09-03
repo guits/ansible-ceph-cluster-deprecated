@@ -1,0 +1,23 @@
+---
+# Setup common packages for all nodes
+- name: refresh apt cache
+  apt: update_cache=yes
+
+- name: install base packages
+  apt: pkg={{item}} state=present
+  with_items:
+   - git
+   - git-core
+   - curl
+   - strace
+   - htop
+   - tcpdump
+   - netcat
+   - screen
+   - htop
+   - lsof
+   - vim
+   - ncdu
+   - rsync
+   - ntp
+   - zigzag-base-config
