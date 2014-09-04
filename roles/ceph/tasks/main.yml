@@ -1,2 +1,1 @@
-- name: put ssh keys for root user
-  copy: src=ssh/pub-keys dest=/root/.ssh/authorized_keys owner=root group=root mode=0600
+# Here will be included the differents tasks for a ceph node
