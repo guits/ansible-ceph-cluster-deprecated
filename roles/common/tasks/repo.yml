@@ -4,8 +4,6 @@
 - name: add zigzag repo
   # useless password
   apt_repository: repo='deb http://zigzag:VpR+d52}qv@repo.zigzag.sx wheezy main' mode=644 state=present
-
 - name: add gpg public key for zigzag repo
   # useless password
-  apt_repository: repo='deb http://zigzag:VpR+d52}qv@repo.zigzag.sx wheezy main' mode=644 state=present
   apt_key: url=http://zigzag:VpR+d52}qv@repo.zigzag.sx/key/zigzag.pub state=present

@@ -1,6 +1,5 @@
 ---
-# Ensure .ssh directory exists for root user and add ssh keys
-- name: ensure .ssh directory exists for root user
-  file: dest=/root/.ssh owner=root group=root mode=0755 state=directory
-- name: put ssh keys for root user
-  copy: src=ssh/pub-keys dest=/root/.ssh/authorized_keys owner=root group=root mode=0600
+- name: Add ssh keys
+  lineinfile: dest=/root/.ssh/authorized_keys create=yes owner=root group=root mode=0644 state=present line="{{ item.0 }}"
+  with_together:
+  - keys
