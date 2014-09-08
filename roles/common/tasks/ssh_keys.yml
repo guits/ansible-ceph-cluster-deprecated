@@ -1,4 +1,16 @@
 ---
 - name: Add ssh keys
-  lineinfile: dest=/root/.ssh/authorized_keys create=yes owner=root group=root mode=0644 state=present line="{{ item }}"
+  lineinfile: dest=/root/.ssh/authorized_keys create=yes owner=root group=root mode=0644 state=present line="{{item}}"
   with_items: keys
+
+- name: check if ssh keys are present for root
+  stat: path=/root/.ssh/id_rsa.pub
+  register: p
+
+#TODO: if /root/.ssh/id_rsa exists but is a directory, we will have a problem..
+#TODO: maybe we could put the path in a variable
+- name: create ssh keys if necessary
+  command: "ssh-keygen -t rsa -b 2048 -q -f /root/.ssh/id_rsa -N ''"
+  when: p.stat.exists == false
+
+#- debug: var=ssh_pub_key
