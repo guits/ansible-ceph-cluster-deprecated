@@ -4,4 +4,3 @@
 - name: put all nodes ssh pub key
   lineinfile: dest=/root/.ssh/authorized_keys create=yes owner=root group=root mode=0644 state=present line="{{hostvars[item]['ansible_local']['ssh_key_pub'].get('ssh_key_pub')}}"
   with_items: groups['ceph-cluster']
-  when: hostvars[item]['ansible_local'] is defined

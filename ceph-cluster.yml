@@ -1,6 +1,6 @@
 - hosts: ceph-cluster
   gather_facts: no
-  tasks:
+  pre_tasks:
     - include: facts.yml
     - name: gathering facts
       setup:
