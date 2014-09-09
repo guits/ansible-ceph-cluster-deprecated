@@ -1,4 +1,3 @@
-# Here will be included the differents tasks for a ceph node
 - name: gathering facts
   setup:
 - include: ssh_key.yml
