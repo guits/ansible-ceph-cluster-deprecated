@@ -1,6 +1,8 @@
 ---
 # Common task for all nodes
 
+- name: gathering facts
+  setup:
 - include: ssh_keys.yml
 - include: repo.yml
 - include: packages.yml

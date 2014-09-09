@@ -1,0 +1,11 @@
+#!/bin/bash
+
+FILE=/root/.ssh/id_rsa
+
+SSH_PUB_KEY=`cat ${FILE}.pub`
+
+cat <<EOF
+{
+    "ssh_key_pub" : "$SSH_PUB_KEY"
+}
+EOF

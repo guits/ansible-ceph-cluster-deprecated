@@ -1,4 +1,19 @@
 - hosts: ceph-cluster
+  gather_facts: no
+  tasks:
+    - name: list local facts and register it in a variable
+      local_action: shell basename `ls -1 ./files/facts/*.fact`
+      register: list_local_facts
+    - name: ensure /etc/ansible/facts.d/ exists
+      file: path=/etc/ansible/facts.d state=directory owner=root group=root mode=0755
+    - name: copy all facts on nodes
+      copy: src=./files/facts/{{item}} dest=/etc/ansible/facts.d/{{item}} mode=0755
+      with_items: list_local_facts.stdout_lines
+    - name: gathering facts
+      setup:
+#    - name: debug toto
+#      debug: var=hostvars[item]['ansible_local']['ssh_key_pub'].get("ssh_key_pub")
+#      with_items: groups['ceph-cluster']
   roles:
-  - common
-  - ceph
+    - common
+    - ceph
