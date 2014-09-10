@@ -1,3 +1,5 @@
 - name: gathering facts
   setup:
 - include: ssh_key.yml
+- include: repo.yml
+- include: packages.yml
