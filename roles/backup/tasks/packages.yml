@@ -1,0 +1,9 @@
+---
+# Setup common packages for backup nodes
+- name: refresh apt cache
+  apt: update_cache=yes
+
+- name: install backup role packages
+  apt: pkg={{item}} state=present
+  with_items:
+   - drbd8-utils
